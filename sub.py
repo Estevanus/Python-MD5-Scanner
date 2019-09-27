@@ -112,3 +112,4 @@ def scan3(urutan, beda, md, timeStart, forHasil):
 			
 		
 	forHasil.put(hasil)
+
