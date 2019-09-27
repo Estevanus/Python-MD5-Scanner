@@ -76,10 +76,15 @@ def getDigitKe(nilai):
 	return i + 1
 	
 def scan3(urutan, beda, md, timeStart, forHasil):
+	'''
+	urutan = index of Process
+	beda = number of Process
+	md = md5 text to compare it
+	timeStart = Starting point where the time is start, this will be remove in future
+	forHasil = A queue object to share between process
+	'''
 	rangeStart = urutan * beda
 	rangeEnd = (urutan + 1) * beda - 1
-	#cek = urutan, beda, rangeStart
-	#print(cek)
 	i = 0
 	bedaKe = 0
 	n = 0
@@ -88,19 +93,16 @@ def scan3(urutan, beda, md, timeStart, forHasil):
 	while True:
 		n = i + rangeStart + beda * beda * bedaKe
 		cek = n, i, rangeStart, beda, bedaKe
-		#print(n)
 		if i < beda - 1:
 			i += 1
 		else:
 			bedaKe += 1
 			i = 0
 			
-		#digitKe = getDigitKe(n)
 		cek = n, digitKe
 		try:
 			b1 = n.to_bytes(digitKe, 'little')
 			cek = n, b1
-			#print(cek)
 		except OverflowError:
 			digitKe += 1
 			print("it's already {0} digits used".format(digitKe))
@@ -110,5 +112,3 @@ def scan3(urutan, beda, md, timeStart, forHasil):
 			
 		
 	forHasil.put(hasil)
-	#endTime = time.time() - timeStart
-	#print("hasilnya ialah {0} dalam waktu {1}".format(hasil, endTime))
