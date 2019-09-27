@@ -1,4 +1,4 @@
-Well, since it's not directly convert it rather than converting each integer to byte that eventually convert it to md5 then equalize it to input.
+Well, since it's not directly convert it rather than converting each integer to byte that eventually convert it to md5 then equalize it to the input.
 
 Requirement: Python (currently tested on python 3)
 
